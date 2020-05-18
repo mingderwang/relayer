@@ -11,9 +11,12 @@ make install
 ```
 rly gql
 ```
+then, surf on http://localhost:8085/
 
 ## screenshot
 ![](https://paper-attachments.dropbox.com/s_88679D05DCCDE284F01D1672316BCDB3CC37EED980EEF6D07585EE1B928B1119_1589818752027_Screen+Shot+2020-05-18+at+8.50.36+PM.png)
 
 
 
+## todo
+still have a lot of works to do.
