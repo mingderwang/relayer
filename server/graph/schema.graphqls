@@ -1,0 +1,106 @@
+type Message {
+    id: ID!
+    text: String!
+    createdBy: String!
+    createdAt: Time!
+}
+
+type KV {
+    key: String!
+    value: String
+}
+type Config {
+    global: [KV]
+    chains: [Chain!]!
+    paths: [Path!]!
+}
+
+type Path {
+    id: ID!
+    name: String!
+    src: PathContent
+    dst: PathContent
+    strategy: Strategy!
+}
+
+type PathContent {
+    chain_id: String!
+    client_id: String!
+    connection_id: String!
+    channel_id: String!
+    port_id: String!
+    order: String!
+}
+
+type Strategy {
+    type: String!
+}
+
+type Chain {
+    id: ID!
+      key: String!
+      chain_id: String!
+      rpc_addr: String!
+      account_prefix: String!
+      gas: Int!
+      gas_prices: String!
+      default_denom: String!
+      trusting_period: String! 
+}
+
+type Version {
+    version: String!
+    commit: String!
+    cosmos_sdk: String!
+    gaia: String!
+    go: String!
+}
+
+type Client {
+    id: ID!
+    height: String!
+}
+
+type Connection {
+    id: ID!
+    state: String!
+}
+
+type Channel {
+    id: String!
+    port: String!
+    state: String!
+    order: String! 
+}
+
+type ChainStatus {
+    name: String!
+    reachable: Boolean
+    height: String!
+    client: Client!
+    connection: Connection!
+    channel: Channel!
+}
+
+type PathStatus {
+    src: ChainStatus!
+    dst: ChainStatus!
+}
+
+type Query {
+    version: Version
+    config: Config
+    path(name:String!): PathStatus 
+}
+
+type Mutation {
+    post(text: String!): Message!
+}
+
+type Subscription {
+    start(pathName: String!): Message!
+}
+
+scalar Time
+
+directive @user(username: String!) on SUBSCRIPTION

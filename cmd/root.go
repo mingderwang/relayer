@@ -78,6 +78,7 @@ func init() {
 		transactionCmd(),
 		queryCmd(),
 		startCmd(),
+                graphqlCmd(),
 		flags.LineBreak,
 		devCommand(),
 		testnetsCmd(),
