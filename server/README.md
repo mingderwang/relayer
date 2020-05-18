@@ -1,7 +1,7 @@
 # relayer graphql demo
 ## build 
 ```
-git clone rhttps://github.com/mingderwang/relayer.git
+git clone https://github.com/mingderwang/relayer.git
 cd relayer
 make install
 ```
